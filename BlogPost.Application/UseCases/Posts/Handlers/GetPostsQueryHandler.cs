@@ -1,6 +1,7 @@
 ﻿using BlogPost.Application.Abstractions;
 using BlogPost.Application.UseCases.Posts.Queries;
 using BlogPost.Application.UseCases.ResponseModels;
+using BlogPost.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,6 +24,7 @@ namespace BlogPost.Application.UseCases.Posts.Handlers
 
         public async Task<List<PostDTO>> Handle(GetPostsQuery request, CancellationToken cancellationToken)
         {
+            //var posts = await _applicationDbContext.Posts.OfType<UseTPC>().ToArrayAsync(cancellationToken);
             var posts = await _applicationDbContext.Posts.Select(x => new PostDTO
             {
                 Id = x.Id,
@@ -31,6 +33,8 @@ namespace BlogPost.Application.UseCases.Posts.Handlers
             }).ToListAsync(cancellationToken);
 
             return posts;
+
+
         }
     }
 }

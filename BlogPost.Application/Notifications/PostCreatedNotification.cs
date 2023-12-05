@@ -13,19 +13,12 @@ namespace BlogPost.Application.Notifications
         public int Id { get; set; }
     }
 
+
     public class PostCreatedNotificationHandler1 : INotificationHandler<PostCreatedNotification>
     {
         public async Task Handle(PostCreatedNotification notification, CancellationToken cancellationToken)
         {
             Debug.Print($"1 - Notification handler = {notification.Id.ToString()}");
-        }
-    }
-
-    public class PostCreatedNotificationHandler2 : INotificationHandler<PostCreatedNotification>
-    {
-        public async Task Handle(PostCreatedNotification notification, CancellationToken cancellationToken)
-        {
-            Debug.Print($"2 - Notification handler = {notification.Id.ToString()}");
         }
     }
 }

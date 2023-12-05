@@ -13,6 +13,8 @@ namespace BlogPost.Infrastructure.Persistance.EntityTypeConfiguration
     {
         public void Configure(EntityTypeBuilder<Post> builder)
         {
+            builder.UseTpcMappingStrategy();
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Title)
