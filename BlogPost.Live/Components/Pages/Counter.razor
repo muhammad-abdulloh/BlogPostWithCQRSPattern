@@ -1,0 +1,36 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+
+<PageTitle>List Elements</PageTitle>
+
+<h1>elements</h1>
+
+<p role="status">Current elements: @strings[0]</p>
+
+<button class="btn btn-primary" @onclick="CallListElements">Click me</button>
+
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private List<string> strings = new List<string>() { "item1", "item 2", "item 3" };
+
+    private void CallListElements()
+    {
+        strings.Add("Item 4");
+    }
+}
